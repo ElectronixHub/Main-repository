@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+nav{
+    flex: 1;
+    text-align: right;
+}
+nav ul{
+    display: inline-block;
+    list-style-type: none;
+}
+nav ul li{
+    display: inline-block;
+    margin-right: 25px;
+}
+/* Dropdown select styling */
+.dropbtn {
+    background-color: white;
+    border: none;
+    font-size: 16px;
+    padding: 3px;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.container{
+    max-width: 1400px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+/* Center the slider on the page */
+/* Center the slider on the page */
+.slider {
+    width: 80%; /* Adjust size */
+    height: 200px; /* Fixed height */
+    overflow: hidden;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Create a continuously moving effect */
+.slides {
+    display: flex;
+    width: 100%; /* Adjust based on the number of images */
+    animation: slide 40s linear infinite; /* Continuous loop */
+    
+}
+
+/* Ensure images fit properly */
+.slides img {
+    width: 25%; /* Each image takes 1/4 of the total width */
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Keyframes for infinite smooth sliding */
+@keyframes slide {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); } /* Only slide halfway to loop perfectly */
+}
