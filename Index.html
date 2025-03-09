@@ -1,179 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <title>Electronix Hub</title>
-   <link rel="stylesheet" href="Style.css">
-   <link rel="stylesheet" href="Style.css">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Electronix Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.CSS">
 </head>
 
 
 <body>
-
-   <div class="container">
-      <div class="navbar">
-         <div class="logo">
+<!-- nav bar -->
+<div class="container">
+    <div class="navbar">
+        <div class="logo">
             <a href="Index.html">
-               <img src="images/cover.png" width="170px" alt="Electronix Hub" id="logo" >
+            <img src="images/nav bar/cover.png" width="170px" alt="Electronix Hub" id="logo" >
             </a>        
-         </div>
-         <nav>
+        </div>
+        <nav>
             <ul>
-               <li><a href="index.html">Home</a></li>
-
-                     <li class="dropdown">
+            <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
                         <select class="dropbtn" >
-                              <option selected disabled>🛒 Products</option>
-                              <option value="#">📱 Mobile & Tablets</option>
-                              <option value="#">📺 Televisions</option>
-                              <option value="#">🏠 Home Applicants</option>
-                              <!-- <option value="#">🎧 Accessories</option>
-                              <option value="#">💻 Laptops</option> -->
-                           </select>
-
-               <li><a href="account.html">Account</a></li>
-               <li><a href="cart.html">Cart</a></li>
+                            <option selected disabled>🛒 Products</option>
+                            <option value="#">📱 Mobile & Tablets</option>
+                            <option value="#">💻 Laptops</option> 
+                            <option value="#">📺 Televisions</option>
+                            <option value="#">🏠 Home Applicants</option>
+                            <!-- <option value="#">🎧 Accessories</option> -->
+                        </select>
+            <li><a href="signin.html">Sign in</a></li>
+            <li><a href="cart.html">Cart</a></li>
             </ul>
-         </nav>
-      </div>
-      </div>
+        </nav>
+    </div>
+    </div>
 
 
-   <div class="slider">
-      <div class="slides">
-         <img src="images/first.jpg" alt="Image 1">
-         <img src="images/second.jpg" alt="Image 2">
-         <img src="images/third.jpg" alt="Image 3">
-         <img src="images/forth.jpg" alt="Image 4">
+<br><br><br><br>
 
-         <img src="images/first.jpg" alt="Image 1">
-         <img src="images/second.jpg" alt="Image 2">
-         <img src="images/third.jpg" alt="Image 3">
-         <img src="images/forth.jpg" alt="Image 4">
+<!-- Categories -->
+    <div class="category">
+        <a href="mobiles.html">
+            <img src="images/phone.webp" width="100PX">
+        </a>
 
-      </div>
-   </div>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
+        <a href="screens.html">
+            <img src="images/tv.jpg" width="100PX">
+        </a>
+
+        <a href="homeApp.html">
+            <img src="images/refrigerator.jpg" width="100PX">
+        </a>
+    </div>
+
+
+
+
+<!-- Offers -->
+    <div class="product-container">
+        <div class="product-card">
+            <img src="images/mobiles/mob1.jpg" alt="Product 1">
+            <h3>Iphone 13 pro max</h3>
+            <p class="old-price">EGP 31,300</p>
+            <p class="new-price">EGP 26,500</p>
+            <p class="discount">Save 4800 EGP</p>
+            <button class="add-to-cart">Add to Cart
+                <a href="cart.html"></a>
+            </button>
+        </div>
+        
+        <div class="product-card">
+            <img src="images/laptops/lap1.jpg" alt="Product 2">
+            <h3>HP Pavilion x360 Laptop</h3>
+            <p class="old-price">EGP 50,200</p>
+            <p class="new-price">EGP 42,499</p>
+            <p class="discount">Save 7701 EGP</p>
+            <button class="add-to-cart">Add to Cart
+                <a href="cart.html"></a>
+            </button>        
+        </div>
+        
+        <div class="product-card">
+            <img src="images/tvs/tv2.jpg" alt="Product 3">
+            <h3>Samsung smart tv</h3>
+            <p class="old-price">EGP 82,400</p>
+            <p class="new-price">EGP 69,799</p>
+            <p class="discount">Save 12601 EGP</p>
+            <button class="add-to-cart">Add to Cart
+                <a href="cart.html"></a>
+            </button>        
+        </div>
+        
+        <div class="product-card">
+            <img src="images/mobiles/mob2.jpg" alt="Product 4">
+            <h3>Iphone 15 pro max</h3>
+            <p class="old-price">EGP 43,100</p>
+            <p class="new-price">EGP 36,500</p>
+            <p class="discount">Save 6600 EGP</p>
+            <button class="add-to-cart">Add to Cart
+                <a href="cart.html"></a>
+            </button>
+                </div>
+        
+        <div class="product-card">
+            <img src="images/laptops/lap2.jpg" alt="Product 5">
+            <h3>macbook pro</h3>
+            <p class="old-price">EGP 73,700</p>
+            <p class="new-price">EGP 62,399</p>
+            <p class="discount">Save 11301 EGP</p>
+            <button class="add-to-cart">Add to Cart
+                <a href="cart.html"></a>
+            </button>
+                </div>
+    </div>
+
+
+
+
+
+
+
+
+
 
    <!-- Begin Footer Area -->
    <div class="footer">
-      <!-- Begin Footer Static Top Area -->
-      <div class="footer-static-top">
-          <div class="container">
-              <!-- Begin Footer Shipping Area -->
-              <div class="footer-shipping pt-60 pb-55 pb-xs-25">
-                  <div class="row">
-                      <!-- Begin Li's Shipping Inner Box Area -->
-                      <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
-                          <div class="li-shipping-inner-box">
-                              <div class="shipping-icon">
-                                  <img src="images/shipping-icon/1.png" alt="Shipping Icon">
-                              </div>
-                              <div class="shipping-text">
-                                  <h2>Free Delivery</h2>
-                                  <p>And free returns. See checkout for delivery dates.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <!-- Li's Shipping Inner Box Area End Here -->
-                      <!-- Begin Li's Shipping Inner Box Area -->
-                      <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
-                          <div class="li-shipping-inner-box">
-                              <div class="shipping-icon">
-                                  <img src="images/shipping-icon/2.png" alt="Shipping Icon">
-                              </div>
-                              <div class="shipping-text">
-                                  <h2>Safe Payment</h2>
-                                  <p>Pay with the world's most popular and secure payment methods.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <!-- Li's Shipping Inner Box Area End Here -->
-                      <!-- Begin Li's Shipping Inner Box Area -->
-                      <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
-                          <div class="li-shipping-inner-box">
-                              <div class="shipping-icon">
-                                  <img src="images/shipping-icon/3.png" alt="Shipping Icon">
-                              </div>
-                              <div class="shipping-text">
-                                  <h2>Shop with Confidence</h2>
-                                  <p>Our Buyer Protection covers your purchasefrom click to delivery.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <!-- Li's Shipping Inner Box Area End Here -->
-                      <!-- Begin Li's Shipping Inner Box Area -->
-                      <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
-                          <div class="li-shipping-inner-box">
-                              <div class="shipping-icon">
-                                  <img src="images/shipping-icon/4.png" alt="Shipping Icon">
-                              </div>
-                              <div class="shipping-text">
-                                  <h2>24/7 Help Center</h2>
-                                  <p>Have a question? Call a Specialist or chat online.</p>
-                              </div>
-                          </div>
-                      </div>
-                      <!-- Li's Shipping Inner Box Area End Here -->
-                  </div>
-      <!-- Footer Static Top Area End Here -->
-      <!-- Begin Footer Static Middle Area -->
-      <div class="footer-static-middle">
-          <div class="container">
-              <div class="footer-logo-wrap pt-50 pb-35">
-                  <div class="row">
-                      <!-- Begin Footer Logo Area -->
-                      <div class="col-lg-4 col-md-6">
-                          <div class="footer-logo">
-                              <img src="images/cover.png" alt="Footer Logo" class="f-logo">
-                          </div>
-                          <ul class="des">
-                              <li>
-                                  <span>Address: </span>
-                                  6688Princess Road, London, Greater London BAS 23JK, UK
-                              </li>
-                              <li>
-                                  <span>Phone: </span>
-                                  <a href="#">(+123) 123 321 345</a>
-                              </li>
-                              <li>
-                                  <span>Email: </span>
-                                  <a href="mailto://info@yourdomain.com">info@yourdomain.com</a>
-                              </li>
-                          </ul>
-                      </div>
-                      
-                  </div>
-              </div>
-          </div>
-      </div>
-                      <!-- Begin Footer Payment Area -->
-                      <div class="copyright text-center" class="row">
-                          <a href="#">
-                              <img src="images/payment/1.png" alt="">
-                          </a>
-                      </div>
-                      <!-- Footer Payment Area End Here -->
-                      
-                  </div>
-              </div>
-          </div>
-      </div>
-      
-  </div>
-  
+    <!-- Begin Footer Static Top Area -->
+    <div class="footer-static-top">
+        <div class="container">
+            <!-- Begin Footer Shipping Area -->
+            <div class="footer-shipping pt-60 pb-55 pb-xs-25">
+                <div class="row">
+                    <!-- Begin Li's Shipping Inner Box Area -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
+                        <div class="li-shipping-inner-box">
+                            <div class="shipping-icon">
+                                <img src="images/shipping-icon/1.png" alt="Shipping Icon">
+                            </div>
+                            <div class="shipping-text">
+                                <h2>Free Delivery</h2>
+                                <p>And free returns. See checkout for delivery dates.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Li's Shipping Inner Box Area End Here -->
+                    <!-- Begin Li's Shipping Inner Box Area -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
+                        <div class="li-shipping-inner-box">
+                            <div class="shipping-icon">
+                                <img src="images/shipping-icon/2.png" alt="Shipping Icon">
+                            </div>
+                            <div class="shipping-text">
+                                <h2>Safe Payment</h2>
+                                <p>Pay with the world's most popular and secure payment methods.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Li's Shipping Inner Box Area End Here -->
+                    <!-- Begin Li's Shipping Inner Box Area -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
+                        <div class="li-shipping-inner-box">
+                            <div class="shipping-icon">
+                                <img src="images/shipping-icon/3.png" alt="Shipping Icon">
+                            </div>
+                            <div class="shipping-text">
+                                <h2>Shop with Confidence</h2>
+                                <p>Our Buyer Protection covers your purchasefrom click to delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Li's Shipping Inner Box Area End Here -->
+                    <!-- Begin Li's Shipping Inner Box Area -->
+                    <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
+                        <div class="li-shipping-inner-box">
+                            <div class="shipping-icon">
+                                <img src="images/shipping-icon/4.png" alt="Shipping Icon">
+                            </div>
+                            <div class="shipping-text">
+                                <h2>24/7 Help Center</h2>
+                                <p>Have a question? Call a Specialist or chat online.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Li's Shipping Inner Box Area End Here -->
+                </div>
+    <!-- Footer Static Top Area End Here -->
+    <!-- Begin Footer Static Middle Area -->
+    <div class="footer-static-middle">
+        <div class="container">
+            <div class="footer-logo-wrap pt-50 pb-35">
+                <div class="row">
+                    <!-- Begin Footer Logo Area -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-logo">
+                            <img src="images/cover.png" alt="Footer Logo" class="f-logo">
+                        </div>
+                        <ul class="des">
+                            <li>
+                                <span>Address: </span>
+                                6688Princess Road, London, Greater London BAS 23JK, UK
+                            </li>
+                            <li>
+                                <span>Phone: </span>
+                                <a href="#">(+123) 123 321 345</a>
+                            </li>
+                            <li>
+                                <span>Email: </span>
+                                <a href="mailto://info@yourdomain.com">info@yourdomain.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+                    <!-- Begin Footer Payment Area -->
+                    <div class="copyright text-center" class="row">
+                        <a href="#">
+                            <img src="images/payment/1.png" alt="">
+                        </a>
+                    </div>
+                    <!-- Footer Payment Area End Here -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
 </div>
 
 
-
-  </html>
 </body>
 </html>
