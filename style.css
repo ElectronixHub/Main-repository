@@ -3,16 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* .page-body {
-    display:grid;
-    grid-template-columns: 300px 300px 300px;
-    column-gap: 20px;
-    row-gap: 40px;
-    justify-content:center;
-    gap:20px;
-} */
-
-
 .container{
     max-width: 1400px;
     margin: auto;
@@ -43,7 +33,6 @@ nav ul li{
 }
 
 
-
 /* Dropdown select styling */
 .dropbtn {
     background-color: white;
@@ -58,87 +47,91 @@ nav ul li{
 } */
 
 
-
-
-
-
 /* Footer styling */
 .footer {
-    background-color: #333;
+    background-color: #3b3737;
     color: white;
-    padding: 20px 0;
+    padding: 2px 0;  /* Even smaller padding */
     text-align: center;
-    margin-top: 0;  /* Push the footer to the bottom */
+    margin-top: 0;
 }
 
 /* Footer content styling */
 .footer .footer-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    padding: 2px 5px; /* Reduced padding */
 }
 
 /* Footer section styling */
 .footer .footer-section {
     flex: 1;
-    padding: 10px;
-    min-width: 200px;
+    padding: 1px;  /* Minimal padding */
+    min-width: 130px; /* Slightly reduced */
 }
 
 /* Footer logo text */
 .footer .logo-text {
-    font-size: 24px;
+    font-size: 14px; /* Slightly smaller */
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 3px; /* Further minimized margin */
 }
 
 /* Contact section styling */
 .footer .contact span {
     display: block;
-    margin: 5px 0;
+    margin: 1px 0;  /* Minimized spacing */
 }
 
 .footer .contact i {
-    margin-right: 10px;
+    margin-right: 3px; /* Slightly smaller spacing */
 }
 
-* {
-    font-family: "Red Hat Display", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style:normal ;
-  }
-  /* footer styling icons in width */
-  .row  {
+/* Footer row styling */
+.row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    gap: 20px;
-    padding: 20px;
-  }
-  .li-shipping-inner-box {
+    gap: 5px;  /* Minimal gap */
+    padding: 2px; /* Reduced padding */
+}
+
+/* Footer icon box */
+.li-shipping-inner-box {
     flex: 1;
-    min-width: 200px;
-  }
-  .li-shipping-inner-box  img{
-    width: 50px;
+    min-width: 130px; /* Reduced */
+}
+
+.li-shipping-inner-box img {
+    width: 28px; /* Even smaller icons */
     height: auto;
-  }
-  /* footer logo style electronix hub */
-  .f-logo {
-    width: 30%;
-    size: 20%;
-  }
-  .des {
-    list-style-type: none;
-  }
-  .social {
+}
+
+/* Footer logo */
+.f-logo {
+    width: 15%; /* Further reduced */
+}
+
+/* Footer social links */
+.social {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    gap: 20px;
-    padding: 20px;
-  }
+    gap: 5px;  /* Minimal spacing */
+    padding: 2px; /* Further reduced padding */
+}
+
+/* Remove list styling */
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer li {
+    list-style: none;
+}
