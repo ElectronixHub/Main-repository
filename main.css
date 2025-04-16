@@ -1,0 +1,197 @@
+
+/* Styling for the category section */
+.category {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 20px;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+/* .category-item img {
+    width: 80%; 
+    height: auto;
+    object-fit: contain; 
+
+} */
+
+
+/* 
+.category-section {
+    width: 90%;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+
+.category-item img.larger-image {
+    width: 40%;
+    height: auto;
+    object-fit: contain; 
+} */
+
+
+.category-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.category-header h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+.category-divider {
+    width: 80px;
+    border: 1px solid #333;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.page-body {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    column-gap: 20px;
+    row-gap: 30px;
+    justify-content: center;
+    margin: 50px auto; 
+    max-width:1000px;
+}
+
+
+
+
+.item {
+    box-sizing: border-box;
+    width: 300px;
+    border: 1px solid #ddd;
+    background-color: white;
+    max-height: 400px;
+    max-width: 300px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 20px; 
+    flex-direction: column;
+    cursor: pointer;
+    transition: box-shadow 0.4s;
+    position: relative;
+    overflow: hidden;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+} 
+
+.item:hover {
+    box-shadow: 1px 1px 10px grey;
+    transform: scale(1.03);
+}
+.item img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+.item-name h3 {
+    font-size: 19px;
+    margin: 10px 0;
+}
+.item-desc .old-price {
+    text-decoration: line-through;
+    color: #999;
+}
+.item-desc .new-price {
+    font-size: 18px;
+    color: #e74c3c;
+    font-weight: bold;
+}
+.item-desc .discount {
+    font-size: 15px;
+    color: #2e78cc;
+    margin: 10px 0;
+}
+
+
+
+
+.add-to-cart {
+    background-color: #ffa41c;
+    color: #111;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 100%;
+    font-weight: bold;
+    transition: background 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    margin-top: auto; 
+}
+
+.add-to-cart:hover {
+    box-shadow: 1px 1px 10px rgb(32, 34, 33);
+    opacity: 0.7;
+}
+.add-to-cart:active {
+    opacity: 0.8;
+}
+
+
+
+/* Swiper Slider Styles */
+.swiper-container {
+    width: 90%; /* Decreased width */
+    height: 450px; /* Increased height */
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+}
+
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+.swiper-button-next {
+    right: 10px;
+}
+.swiper-button-prev {
+    left: 10px;
+}
+.swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.swiper-pagination-bullet {
+    background: white;
+    opacity: 0.7;
+}
+.swiper-pagination-bullet-active {
+    background: #ff9900;
+    opacity: 1;
+}
