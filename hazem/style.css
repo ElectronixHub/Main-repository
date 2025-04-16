@@ -1,0 +1,221 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+    position: relative; /* Ensure the container doesn't push things down */
+}
+
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative; /* Ensure it stays at the top */
+    top: 0;  /* Ensures it aligns to the top */
+    z-index: 10; /* Keeps it above other elements */
+}
+nav {
+    text-align: right;
+  }
+  
+  nav ul {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 25px;
+  }
+
+/* nav{
+    flex: 1;
+    text-align: right;
+}
+*/
+
+
+
+/* Dropdown select styling */
+.dropbtn {
+    background-color: white;
+    border: none;
+    font-size: 16px;
+    padding: 3px;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+ #searchInput {
+    width: 100%;
+    max-width: 380px;
+    padding: 12px 15px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 7px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  #searchInput:focus {
+    border-color: #007bff;
+  }
+  
+    
+    /* Keeps results list below input */
+     #resultsList {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        z-index: 100;
+        margin-top: 5px;
+        list-style: none;
+        padding: 0;
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    #resultsList li {
+      background-color: #fff;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s ease;
+    }
+    
+    #resultsList li:hover {
+      background-color: #f0f0f0;
+    } 
+     
+
+
+
+
+/* Footer styling */
+.footer {
+    background-color: #3b3737;
+    color: white;
+    padding: 2px 0;  /* Even smaller padding */
+    text-align: center;
+    /* margin-top: 0; */
+
+        width: 100%;
+        position: relative; /* Ensure it flows with the document */
+        clear: both; /* Prevents overlapping */
+        margin-top: 50px; /* Pushes footer away from content */
+    
+}
+
+
+.footer-static-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+/* Footer content styling */
+.footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2px 5px; /* Reduced padding */
+}
+
+/* Footer section styling */
+.footer .footer-section {
+    flex: 1;
+    padding: 1px;  /* Minimal padding */
+    min-width: 130px; /* Slightly reduced */
+}
+
+/* Footer logo text */
+.footer .logo-text {
+    font-size: 14px; /* Slightly smaller */
+    font-weight: bold;
+    margin-bottom: 3px; /* Further minimized margin */
+}
+
+/* Contact section styling */
+.footer .contact span {
+    display: block;
+    margin: 1px 0;  /* Minimized spacing */
+}
+
+.footer .contact i {
+    margin-right: 3px; /* Slightly smaller spacing */
+}
+
+/* Footer row styling */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 5px;  /* Minimal gap */
+    padding: 2px; /* Reduced padding */
+}
+
+/* Footer icon box */
+.li-shipping-inner-box {
+    flex: 1;
+    min-width: 130px; /* Reduced */
+}
+
+.li-shipping-inner-box img {
+    width: 28px; /* Even smaller icons */
+    height: auto;
+}
+
+/* Footer logo */
+.f-logo {
+    width: 15%; /* Further reduced */
+}
+
+/* Footer social links */
+.social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 5px;  /* Minimal spacing */
+    padding: 2px; /* Further reduced padding */
+}
+
+/* Remove list styling */
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer li {
+    list-style: none;
+}
