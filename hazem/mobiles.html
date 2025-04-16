@@ -1,200 +1,434 @@
-mobiles
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mobiles.css">
-
-    <title>Home Appliances</title>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'product-layout.css' %}">
+    <title>mobiles</title>
 </head>
+
 <body>
 
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="Index.html">
-                <img src="images/nav bar/cover.png" width="170px" alt="Electronix Hub" id="logo" >
-                </a>        
+                <a href="/">
+                    <img src="{% static 'images/nav bar/cover.png' %}" width="170px" alt="Electronix Hub" id="logo">
+                </a>
             </div>
+            
+            <input type="text" id="searchInput" placeholder="Search...">
+            <ul id="resultsList"></ul>
+            
+            <script>
+                          const input = document.getElementById("searchInput");
+                          const resultsList = document.getElementById("resultsList");
+                          
+                          input.addEventListener("keyup", async () => {
+                              const query = input.value;
+                              const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
+                              const data = await response.json();
+                              
+                              resultsList.innerHTML = "";
+                              data.forEach(item => {
+                                  const li = document.createElement("li");
+                                  li.textContent = item.name;
+                                  resultsList.appendChild(li);
+                                });
+                            });
+                            </script>
+
+
+
             <nav>
-            <ul>
-            <li><a href="index.html">Home</a></li>
-
+                <ul>
+                    <li><a href="/">Home</a></li>
                     <li class="dropdown">
-                        <select class="dropbtn" >
-                            <option selected disabled>🛒 Products</option>
-                            <option value="#">📱 Mobile & Tablets</option>
-                            <option value="#">💻 Laptops</option> 
-                            <option value="#">📺 Televisions</option>
-                            <option value="#">🏠 Home Applicants</option>
-                            <!-- <option value="#">🎧 Accessories</option> -->
-                        </select>
-
-            <li><a href="signin.html">Sign in</a></li>
-            <li><a href="cart.html">Cart</a></li>
-            </ul>
-        </nav>
+                    <select class="dropbtn" onchange="redirectToPage(this.value);">
+                        <option selected disabled>🛒 Products</option>
+                        <option value="/mobiles/">📱 Mobiles</option>
+                        <option value="/tablets/">🖥️ Tablets</option>
+                        <option value="/Laptops/">💻 Laptops</option>
+                        <option value="/screens/">📺 Televisions</option>
+                        <option value="/devices/">🏠 Home Appliances</option>
+                    </select>
+                        <script>
+                            function redirectToPage(url) {
+                                if (url) {
+                                    window.location.href = url;
+                                }
+                            }
+                        </script>
+                    <li><a href="/signin/">Sign in</a></li>
+                    <li><a href="/cart/">🛒</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
-    </div>
 
 
 
-
-
-
-
-
- <div class="page-body">
+    <div class="page-body">
+        <div class="item">
+            <div class="item-pic">
+                <img src="{% static 'Images/mobiles/galaxy-s25.webp' %}" alt="">
+            </div>
+            <div>
+                <div class="item-name">
+                    <p>Samsung galaxy A15</p>
+                </div>
+                <div class="item-desc">
+                    <div>
+                        <p>6.5" LCD 90Hz, Dimensity 6100+, 50MP main camera, 4GB/6GB RAM, 5000mAh battery, 15W charging.
+                        </p>
+                    </div>
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/refrigerator.jpg" alt="">
+                <img src="{% static 'Images/mobiles/galaxy-s25-plus.webp' %}" alt="">
+            </div>
+            <div>
+                <div class="item-name">
+                    <p>Samsung galaxy A25</p>
+                </div>
+                <div class="item-desc">
+                    <div>
+                        <p>6.5" Super AMOLED 120Hz, Exynos 1280, 50MP main camera, 6GB/8GB RAM, 5000mAh battery, 25W
+                            charging.</p>
+                    </div>
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-pic">
+                <img src="{% static 'Images/mobiles/galaxy-s25-plus.webp' %}" alt="">
+            </div>
+            <div>
+                <div class="item-name">
+                    <p>Samsung galaxy A34 5G</p>
+                </div>
+                <div class="item-desc">
+                    <div>
+                        <p>6.6" Super AMOLED 120Hz, Dimensity 1080, 48MP OIS camera, 8GB RAM, 5000mAh battery, IP67
+                            water resistance.</p>
+                    </div>
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-pic">
+                <img src="{% static 'Images/mob1.jpg' %}" alt="">
+            </div>
+            <div>
+                <div class="item-name">
+                    <p>Samsung galaxy A35 5G</p>
+                </div>
+                <div class="item-desc">
+                    <div>
+                        <p>6.6" Super AMOLED 120Hz, Exynos 1380, 50MP triple camera, 6GB/8GB RAM, 128GB/256GB storage,
+                            5000mAh battery, 25W charging, IP67 water resistance, One UI 6 (Android 14).</p>
+                    </div>
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-pic">
+                <img src="{% static 'Images/mob1.jpg' %}" alt="">
+            </div>
+            <div>
+                <div class="item-name">
+                    <p>Samsung galaxy A54 5G</p>
+                </div>
+                <div class="item-desc">
+                    <div>
+                        <p>6.4" Super AMOLED 120Hz, Exynos 1380, 50MP OIS camera, 8GB RAM, 5000mAh battery, IP67 water
+                            resistance.</p>
+                    </div>
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-pic">
+                <img src="{% static 'Images/mob1.jpg' %}" alt="">
+            </div>
+            <div>
+                <div class="item-name">
+                    <p>Samsung galaxy A55 5G</p>
+                </div>
+                <div class="item-desc">
+                    <div>
+                        <p>6.5" Super AMOLED 120Hz, Exynos 1480 / Snapdragon 7 Gen 1, 50MP triple camera, 8GB/12GB RAM,
+                            128GB/256GB storage, 5000mAh battery, 25W charging, IP67 water resistance, One UI 6 (Android
+                            14).</p>
+                    </div>
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-pic">
+                <img src="{% static 'Images/mob1.jpg' %}" alt="">
+            </div>
+            <div>
+                <div class="item-name">
+                    <p>Samsung galaxy A73 5G</p>
+                </div>
+                <div class="item-desc">
+                    <div>
+                        <p>6.7" Super AMOLED+ 120Hz, Snapdragon 778G, 108MP quad camera, 8GB RAM, 5000mAh battery, 25W
+                            charging.</p>
+                    </div>
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-pic">
+                <img src="{% static 'Images/mob1.jpg' %}" alt="">
+            </div>
+            <div>
+                <div class="item-name">
+                    <p>Samsung galaxy A74 5G</p>
+                </div>
+                <div class="item-desc">
+                    <div>
+                        <p>6.7" Super AMOLED 120Hz, Snapdragon 7 Gen 1, 108MP main camera, 8GB RAM, 5000mAh battery, 67W
+                            fast charging.</p>
+                    </div>
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-pic">
+                <img src="{% static 'Images/mob1.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
                     <p>Samsung galaxy S-24</p>
                 </div>
                 <div class="item-desc">
-                             <div> 
-                                <p>6.2" AMOLED 120Hz, Snapdragon 8 Gen 3 / Exynos 2400, 50MP triple camera, 8GB RAM, 128GB/256GB storage, 4000mAh battery, IP68.</p>
-                            </div>
-                <div class="item-button">
-                    <div class="button">
-                        <button class="add-to-cart">Add to cart</button>
+                    <div>
+                        <p>6.2" AMOLED 120Hz, Snapdragon 8 Gen 3 / Exynos 2400, 50MP triple camera, 8GB RAM, 128GB/256GB
+                            storage, 4000mAh battery, IP68.</p>
                     </div>
-                </div>            
-                           
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div> 
-        
+        </div>
+
         <div class="item">
             <div class="item-pic">
-                <img src="Images/mob1.jpg" alt="">
+                <img src="{% static 'Images/mob1.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
                     <p>Samsung galaxy S-24 +</p>
                 </div>
                 <div class="item-desc">
-                             <div>
-                                <p>6.7" AMOLED 120Hz, Snapdragon 8 Gen 3 / Exynos 2400, 50MP triple camera, 12GB RAM, 256GB/512GB storage, 4900mAh battery, IP68. </p>
-                            </div>
-                <div class="item-button">
-                    <div class="button">
-                        <button class="add-to-cart">Add to cart</button>
+                    <div>
+                        <p>6.7" AMOLED 120Hz, Snapdragon 8 Gen 3 / Exynos 2400, 50MP triple camera, 12GB RAM,
+                            256GB/512GB storage, 4900mAh battery, IP68. </p>
                     </div>
-                </div>            
-                           
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div> 
+        </div>
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/mob1.jpg" alt="">
+                <img src="{% static 'Images/mob1.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
                     <p>Samsung galaxy S-24 Ultra</p>
                 </div>
                 <div class="item-desc">
-                             <div> 
-                                <p>6.8" AMOLED 120Hz, Snapdragon 8 Gen 3, 200MP quad camera, 12GB RAM, 256GB-1TB storage, 5000mAh battery, S Pen, IP68.</p>
-                            </div>
-                <div class="item-button">
-                    <div class="button">
-                        <button class="add-to-cart">Add to cart</button>
+                    <div>
+                        <p>6.8" AMOLED 120Hz, Snapdragon 8 Gen 3, 200MP quad camera, 12GB RAM, 256GB-1TB storage,
+                            5000mAh battery, S Pen, IP68.</p>
                     </div>
-                </div>            
-                           
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div> 
+        </div>
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/mob1.jpg" alt="">
+                <img src="{% static 'Images/mob1.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
                     <p>Samsung galaxy S-25</p>
                 </div>
                 <div class="item-desc">
-                             <div> 
-                                <p> 6.2" AMOLED 120Hz, Snapdragon 8 Gen 4 / Exynos 2500, 50MP triple camera, 8GB RAM, 256GB storage, 4200mAh battery, IP68.</p>
-                            </div>
-                <div class="item-button">
-                    <div class="button">
-                        <button class="add-to-cart">Add to cart</button>
+                    <div>
+                        <p> 6.2" AMOLED 120Hz, Snapdragon 8 Gen 4 / Exynos 2500, 50MP triple camera, 8GB RAM, 256GB
+                            storage, 4200mAh battery, IP68.</p>
                     </div>
-                </div>            
-                           
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div> 
+        </div>
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/mob1.jpg" alt="">
+                <img src="{% static 'Images/mobiles/galaxy-s25-plus.webp' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
                     <p>Samsung galaxy S-25 +</p>
                 </div>
                 <div class="item-desc">
-                             <div> 
-                                <p> 6.7" AMOLED 120Hz, Snapdragon 8 Gen 4 / Exynos 2500, 50MP triple camera, 12GB RAM, 256GB/512GB storage, 5000mAh battery, IP68.</p>
-                            </div>
-                <div class="item-button">
-                    <div class="button">
-                        <button class="add-to-cart">Add to cart</button>
+                    <div>
+                        <p> 6.7" AMOLED 120Hz, Snapdragon 8 Gen 4 / Exynos 2500, 50MP triple camera, 12GB RAM,
+                            256GB/512GB storage, 5000mAh battery, IP68.</p>
                     </div>
-                </div>            
-                           
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div> 
+        </div>
+
+
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/mob1.jpg" alt="">
+                <img src="{% static 'Images/mob1.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
-                    <p>Samsung galaxy S-25 Ultra</p>
+                    <p>Apple iphone-13</p>
                 </div>
                 <div class="item-desc">
-                             <div> 
-                                <p>6.8" AMOLED 144Hz, Snapdragon 8 Gen 4, 200MP quad camera, 16GB RAM, 256GB-1TB storage, 5500mAh battery, S Pen, IP68.</p>
-                            </div>
-                <div class="item-button">
-                    <div class="button">
-                        <button class="add-to-cart">Add to cart</button>
+                    <div>
+                        <p>6.1" Super Retina XDR, A15 Bionic, 12MP dual camera, 4GB RAM, 128GB-512GB storage, 3240mAh
+                            battery, Face ID, iOS 15 (upgradable), IP68.</p>
                     </div>
-                </div>            
-                           
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="item">
+            <div class="item-pic">
+                <img src="{% static 'Images/mob1.jpg' %}" alt="">
+            </div>
+            <div>
+                <div class="item-name">
+                    <p>Apple iphone-14 pro</p>
+                </div>
+                <div class="item-desc">
+                    <div>
+                        <p>6.1" ProMotion 120Hz, A16 Bionic, 48MP triple camera, 6GB RAM, 128GB-1TB storage, 3200mAh
+                            battery, Dynamic Island, Always-On Display, iOS 16, IP68.</p>
+                    </div>
+                    <div class="item-button">
+                        <div class="button">
+                            <button class="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div> 
     </div>
-    
+</body>
 
 
 
 
-
-
-
-
-
-
-
-
-    <div class="page-footer" >
-        
-        <div class="footer-static-top" >
+<footer>
+    <!-- Begin Footer Area -->
+    <div class="footer">
+        <!-- Begin Footer Static Top Area -->
+        <div class="footer-static-top">
             <div class="container">
                 <!-- Begin Footer Shipping Area -->
                 <div class="footer-shipping pt-60 pb-55 pb-xs-25">
@@ -203,7 +437,7 @@ mobiles
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/1.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/1.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Free Delivery</h2>
@@ -216,7 +450,7 @@ mobiles
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/2.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/2.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Safe Payment</h2>
@@ -229,7 +463,7 @@ mobiles
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/3.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/3.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Shop with Confidence</h2>
@@ -242,7 +476,7 @@ mobiles
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/4.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/4.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>24/7 Help Center</h2>
@@ -252,56 +486,47 @@ mobiles
                         </div>
                         <!-- Li's Shipping Inner Box Area End Here -->
                     </div>
-        <!-- Footer Static Top Area End Here -->
-        <!-- Begin Footer Static Middle Area -->
-        <div class="footer-static-middle">
-            <div class="container">
-                <div class="footer-logo-wrap pt-50 pb-35">
-                    <div class="row">
-  
-  
-                        <!-- Begin Footer Logo Area -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="footer-logo">
-                                <img src="images/cover.png" alt="Footer Logo" class="f-logo" background-color="white">
+                    <!-- Footer Static Top Area End Here -->
+                    <!-- Begin Footer Static Middle Area -->
+                    <div class="footer-static-middle">
+                        <div class="container">
+                            <div class="footer-logo-wrap pt-50 pb-35">
+                                <div class="row">
+                                    <!-- Begin Footer Logo Area -->
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="footer-logo">
+                                            <img src="{% static 'images/cover.png' %}" alt="Footer Logo" class="f-logo">
+                                        </div>
+                                        <ul class="des">
+                                            <li>
+                                                <span>Address: </span>
+                                                6688Princess Road, London, Greater London BAS 23JK, UK
+                                            </li>
+                                            <li>
+                                                <span>Phone: </span>
+                                                <a href="#">(+123) 123 321 345</a>
+                                            </li>
+                                            <li>
+                                                <span>Email: </span>
+                                                <a href="mailto://info@yourdomain.com">info@yourdomain.com</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <ul class="des">
-                                <li>
-                                    <span>Address: </span>
-                                    6688Princess Road, London, Greater London BAS 23JK, UK
-                                </li>
-                                <li>
-                                    <span>Phone: </span>
-                                    <a href="#">(+123) 123 321 345</a>
-                                </li>
-                                <li>
-                                    <span>Email: </span>
-                                    <a href="mailto://info@yourdomain.com">info@yourdomain.com</a>
-                                </li>
-                            </ul>
                         </div>
-                        
                     </div>
+                    <!-- Begin Footer Payment Area -->
+                    <div class="copyright text-center" class="row">
+                        <a href="#">
+                            <img src="{% static 'images/payment/1.png' %}" alt="">
+                        </a>
+                    </div>
+                    <!-- Footer Payment Area End Here -->
                 </div>
             </div>
         </div>
-                        <!-- Begin Footer Payment Area -->
-                        <div class="copyright text-center" class="row">
-                            <a href="#">
-                                <img src="images/payment/1.png" alt="">
-                            </a>
-                        </div>
-                        <!-- Footer Payment Area End Here -->
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        
     </div>
+</footer>
 
-
-    </div>
-
-</body>
 </html>
