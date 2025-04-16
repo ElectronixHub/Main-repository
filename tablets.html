@@ -16,18 +16,42 @@
                     <img src="{% static 'images/nav bar/cover.png' %}" width="170px" alt="Electronix Hub" id="logo">
                 </a>
             </div>
+            
+            <input type="text" id="searchInput" placeholder="Search...">
+            <ul id="resultsList"></ul>
+            
+            <script>
+                          const input = document.getElementById("searchInput");
+                          const resultsList = document.getElementById("resultsList");
+                          
+                          input.addEventListener("keyup", async () => {
+                              const query = input.value;
+                              const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
+                              const data = await response.json();
+                              
+                              resultsList.innerHTML = "";
+                              data.forEach(item => {
+                                  const li = document.createElement("li");
+                                  li.textContent = item.name;
+                                  resultsList.appendChild(li);
+                                });
+                            });
+                            </script>
+
+
+
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li class="dropdown">
-                        <select class="dropbtn" onchange="redirectToPage(this.value);">
-                            <option selected disabled>🛒 Products</option>
-                            <option value="/mobiles/">📱 Mobiles</option>
-                            <option value="/tablets/">🖥️ Tablets</option>
-                            <option value="/Laptops/">💻 Laptops</option>
-                            <option value="/screens/">📺 Televisions</option>
-                            <option value="/devices/">🏠 Home Appliances</option>
-                        </select>
+                    <select class="dropbtn" onchange="redirectToPage(this.value);">
+                        <option selected disabled>🛒 Products</option>
+                        <option value="/mobiles/">📱 Mobiles</option>
+                        <option value="/tablets/">🖥️ Tablets</option>
+                        <option value="/Laptops/">💻 Laptops</option>
+                        <option value="/screens/">📺 Televisions</option>
+                        <option value="/devices/">🏠 Home Appliances</option>
+                    </select>
                         <script>
                             function redirectToPage(url) {
                                 if (url) {
@@ -41,12 +65,11 @@
             </nav>
         </div>
     </div>
-
     <div class="page-body">
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab1.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab1.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -68,7 +91,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab2.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab2.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -90,7 +113,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab3.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab3.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -112,7 +135,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab4.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab4.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -134,7 +157,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab5.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab5.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -156,7 +179,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab6.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab6.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -178,7 +201,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab1.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab1.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -200,7 +223,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab2.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab2.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -222,7 +245,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab3.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab3.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -244,7 +267,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab4.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab4.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -266,7 +289,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab5.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab5.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -288,7 +311,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab6.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab6.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -309,7 +332,7 @@
         </div>
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab1.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab1.jpg'%}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -331,7 +354,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab2.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab2.jpg'%}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -353,7 +376,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab3.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab3.jpg'%}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -375,7 +398,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab4.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab4.jpg'%}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -397,7 +420,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab5.jpg" alt="">
+                <img src="{%static 'Images/tablets/tab5.jpg'%}" alt="">
             </div>
             <div>
                 <div class="item-name">
@@ -419,7 +442,7 @@
 
         <div class="item">
             <div class="item-pic">
-                <img src="Images/tablets/tab6.jpg" alt="">
+                <img src="{% static 'Images/tablets/tab6.jpg' %}" alt="">
             </div>
             <div>
                 <div class="item-name">

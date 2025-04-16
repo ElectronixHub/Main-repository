@@ -19,18 +19,47 @@
                     <img src="{% static 'images/nav bar/cover.png' %}" width="170px" alt="Electronix Hub" id="logo">
                 </a>
             </div>
+            
             <nav>
                 <ul>
+
+
+
+
+                    <li>
+            <input type="text" id="searchInput" placeholder="Search...">
+            <ul id="resultsList"></ul>
+            
+            <script>
+                          const input = document.getElementById("searchInput");
+                          const resultsList = document.getElementById("resultsList");
+                          
+                          input.addEventListener("keyup", async () => {
+                              const query = input.value;
+                              const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
+                              const data = await response.json();
+                              
+                              resultsList.innerHTML = "";
+                              data.forEach(item => {
+                                  const li = document.createElement("li");
+                                  li.textContent = item.name;
+                                  resultsList.appendChild(li);
+                                });
+                            });
+                            </script></li>
+
+
+
                     <li><a href="/">Home</a></li>
                     <li class="dropdown">
-                        <select class="dropbtn" onchange="redirectToPage(this.value);">
-                            <option selected disabled>🛒 Products</option>
-                            <option value="/mobiles/">📱 Mobiles</option>
-                            <option value="/tablets/">🖥️ Tablets</option>
-                            <option value="/Laptops/">💻 Laptops</option>
-                            <option value="/screens/">📺 Televisions</option>
-                            <option value="/devices/">🏠 Home Appliances</option>
-                        </select>
+                    <select class="dropbtn" onchange="redirectToPage(this.value);">
+                        <option selected disabled>🛒 Products</option>
+                        <option value="/mobiles/">📱 Mobiles</option>
+                        <option value="/tablets/">🖥️ Tablets</option>
+                        <option value="/Laptops/">💻 Laptops</option>
+                        <option value="/screens/">📺 Televisions</option>
+                        <option value="/devices/">🏠 Home Appliances</option>
+                    </select>
                         <script>
                             function redirectToPage(url) {
                                 if (url) {
@@ -54,13 +83,13 @@
 
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="images/bg-banner/1.jpg" alt="Banner 1"></div>
-            <div class="swiper-slide"><img src="images/asus_feb_2025_ar_hp_web.png" alt="Banner 2"></div>
+            <div class="swiper-slide"><img src="{% static 'images/bg-banner/1.jpg'%}" alt="Banner 1"></div>
+            <div class="swiper-slide"><img src="{% static 'images/asus_feb_2025_ar_hp_web.png'%}" alt="Banner 2"></div>
             <div class="swiper-slide"><img
-                    src="images/nav bar/intel_banner_wb_en.webp"
+                    src="{% static 'images/nav bar/intel_banner_wb_en.webp'%}"
                     alt="Banner 3"></div>
             <div class="swiper-slide"><img
-                    src="images/nav bar/samsung_banner_web_en.jpg">
+                    src="{% static 'images/nav bar/samsung_banner_web_en.jpg'%}">
             </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -103,28 +132,28 @@
     <!-- Categories -->
     <div class="category">
         <a href="mobiles.html">
-            <img src="images/categ/phone.jpg" width="100PX">
+            <img src="{% static 'images/categ/phone.jpg'%}" width="100PX">
         </a>
 
         <div class="category">
                     <a href="Laptops.html">
-            <img src="images/categ/lap2.jpg" alt="Laptop" width="200PX">
+            <img src="{% static 'images/categ/lap2.jpg'%}" alt="Laptop" width="200PX">
         </a>
         </div>
 
         <a href="tablets.html">
-            <img src="images/categ/tab.jpg" width="100PX">
+            <img src="{% static 'images/categ/tab.jpg'%}" width="100PX">
         </a>
 
         <div class="category">
             <a href="screens.html">
-            <img src="images/categ/tele1.jpg" alt="Television" width="200PX">
+            <img src="{% static 'images/categ/tele1.jpg'%}" alt="Television" width="200PX">
         </a>
         </div>
 
         <div class="category">
             <a href="devices.html">
-            <img src="images/categ/machine.jpg" alt="Coffee Machine" width="150PX">
+            <img src="{% static 'images/categ/machine.jpg'%}" alt="Coffee Machine" width="150PX">
         </a>
     </div>
     </div>
@@ -135,7 +164,7 @@
         <div class="page-body">
             <div class="item" id="home-offersp">
                 <!-- <div class="item-pic"> -->
-                    <img src="images/mobiles/mob1.jpg" alt="Product 1">
+                    <img src="{% static 'images/mobiles/mob1.jpg'%}" alt="Product 1">
                 <!-- </div> -->
                 <div>
                     <div class="item-name">
@@ -161,7 +190,7 @@
 
 
                     <div class="item" id="home-offersp">
-                        <img src="images/tele/tele1.jpg" alt="Product 2">
+                        <img src="{% static 'images/tele/tele1.jpg'%}" alt="Product 2">
                         <div>
                         <div class="item-name">
                             <h3>Samsung smart tv</h3>
@@ -184,7 +213,7 @@
 
 
                     <div class="item" id="home-offersp">
-                        <img src="images/laptops/lap2.jpg" alt="Product 3">
+                        <img src="{% static 'images/laptops/lap2.jpg'%}" alt="Product 3">
                     <div>
                         <div class="item-name">
                             <h3>macbook pro</h3>
@@ -206,7 +235,7 @@
 
 
                 <div class="item" id="home-offersp">
-                    <img src="images/laptops/lap2.jpg" alt="Product 3">
+                    <img src="{% static 'images/laptops/lap2.jpg'%}" alt="Product 3">
                 <div>
                     <div class="item-name">
                         <h3>macbook pro</h3>
@@ -229,7 +258,7 @@
 
 
             <div class="item" id="home-offersp">
-                <img src="images/laptops/lap2.jpg" alt="Product 3">
+                <img src="{% static 'images/laptops/lap2.jpg'%}" alt="Product 3">
             <div>
                 <div class="item-name">
                     <h3>macbook pro</h3>
@@ -251,7 +280,7 @@
 
 
                     <div class="item" id="home-offersp">
-                            <img src="images/laptops/lap2.jpg" alt="Product 3">
+                            <img src="{% static 'images/laptops/lap2.jpg'%}" alt="Product 3">
                         <div>
                             <div class="item-name">
                                 <h3>macbook pro</h3>
