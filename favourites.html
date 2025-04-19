@@ -1,34 +1,68 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8" />
+    {% load static %}
     <title>My Favorite Products</title>
-    <link rel="stylesheet" href="favourites.css">
-    <link rel="stylesheet" href="style.CSS">
+    <link rel="stylesheet" href="{% static 'favourites.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
 </head>
 
 <body>
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="Index.html">
-                    <img src="images/nav bar/cover.png" width="170px" alt="Electronix Hub" id="logo">
+                <a href="/">
+                    <img src="{% static 'images/nav bar/cover.png' %}" width="170px" alt="Electronix Hub" id="logo">
                 </a>
             </div>
+
+
+            <input type="text" id="searchInput" placeholder="Search...">
+            <ul id="resultsList"></ul>
+
+            <script>
+                const input = document.getElementById("searchInput");
+                const resultsList = document.getElementById("resultsList");
+
+                input.addEventListener("keyup", async () => {
+                    const query = input.value;
+                    const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
+                    const data = await response.json();
+
+                    resultsList.innerHTML = "";
+                    data.forEach(item => {
+                        const li = document.createElement("li");
+                        li.textContent = item.name;
+                        resultsList.appendChild(li);
+                    });
+                });
+            </script>
+
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="favourites.html">Favourites❤️</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/favourites/">Favourites❤️</a></li>
                     <li class="dropdown">
-                        <select class="dropbtn">
+                        <select class="dropbtn" onchange="redirectToPage(this.value);">
                             <option selected disabled>Products</option>
-                            <option value="#">📱 Mobile & Tablets</option>
-                            <option value="#">💻 Laptops</option>
-                            <option value="#">📺 Televisions</option>
-                            <option value="#">🏠 Home Applicants</option>
+                            <option value="/mobiles/">📱 mobiles </option>
+                            <option value="/Laptops/">💻 Laptops</option>
+                            <option value="/tablets/">🖥️ Tablets</option>
+                            <option value="/screens/">📺 Televisions</option>
+                            <option value="/devices/">🏠 Home Applicants</option>
                             <!-- <option value="#">🎧 Accessories</option> -->
                         </select>
-                    <li><a href="signin.html">Sign in</a></li>
-                    <li><a href="cart.html">🛒</a></li>
+                        <script>
+                            function redirectToPage(url) {
+                                if (url) {
+                                    window.location.href = url;
+                                }
+                            }
+                        </script>
+                    <li><a href="/signin/">Sign in</a></li>
+                    <li><a href="/cart/">🛒</a></li>
                 </ul>
             </nav>
         </div>
@@ -40,47 +74,47 @@
 
         <div class="fav-item">
             <span class="fav-heart">❤️</span>
-          <img src="Images/mobiles/galaxy-A15.jpg" alt="Samsung Galaxy A15" />
-          <div>
-            <h3>Samsung Galaxy A15</h3>
-            <p>6.5” LCD, 50MP Camera, 4GB RAM, 5000mAh Battery</p>
-            <div class="price">$199.99</div>
-            <button class="add-to-cart">Add to Cart</button>
-          </div>
-        </div>
-      
-        <div class="fav-item">
-          <span class="fav-heart">❤️</span>
-          <img src="Images/mobiles/iphone-13.jpg" alt="iPhone 13" />
-          <div>
-            <h3>IPhone 13</h3>
-            <p>6.1” OLED, A15 Bionic, Dual 12MP Camera, 3240mAh Battery</p>
-            <div class="price">$699.99</div>
-            <button class="add-to-cart">Add to Cart</button>
-          </div>
+            <img src="{% static 'Images/mobiles/galaxy-A15.jpg' %}" alt="Samsung Galaxy A15" />
+            <div>
+                <h3>Samsung Galaxy A15</h3>
+                <p>6.5” LCD, 50MP Camera, 4GB RAM, 5000mAh Battery</p>
+                <div class="price">$199.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
         </div>
 
         <div class="fav-item">
             <span class="fav-heart">❤️</span>
-            <img src="Images/mobiles/iphone-15-pro-max.jpg" alt="iPhone 13" />
+            <img src="{% static 'Images/mobiles/iphone-13.jpg' %}" alt="iPhone 13" />
             <div>
-              <h3>IPhone 15 Pro Max</h3>
-              <p>6.7" ProMotion, A17 Pro, 48MP triple camera, 4422mAh battery</p>
-              <div class="price">$699.99</div>
-              <button class="add-to-cart">Add to Cart</button>
+                <h3>IPhone 13</h3>
+                <p>6.1” OLED, A15 Bionic, Dual 12MP Camera, 3240mAh Battery</p>
+                <div class="price">$699.99</div>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
-          </div>
+        </div>
 
-          <div class="fav-item">
+        <div class="fav-item">
             <span class="fav-heart">❤️</span>
-            <img src="Images/mobiles/galaxy-A55 5G.jpg" alt="iPhone 13" />
+            <img src="{% static 'Images/mobiles/iphone-15-pro-max.jpg' %}" alt="iPhone 13" />
             <div>
-              <h3>Samsung Galaxy A55</h3>
-              <p>6.5" Super AMOLED, Snapdragon 7 Gen 1, 50MP triple camera, 5000mAh battery</p>
-              <div class="price">$699.99</div>
-              <button class="add-to-cart">Add to Cart</button>
+                <h3>IPhone 15 Pro Max</h3>
+                <p>6.7" ProMotion, A17 Pro, 48MP triple camera, 4422mAh battery</p>
+                <div class="price">$699.99</div>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
-          </div>
+        </div>
+
+        <div class="fav-item">
+            <span class="fav-heart">❤️</span>
+            <img src="{% static 'Images/mobiles/galaxy-A55 5G.jpg' %}" alt="Samsung Galaxy A55" />
+            <div>
+                <h3>Samsung Galaxy A55</h3>
+                <p>6.5" Super AMOLED, Snapdragon 7 Gen 1, 50MP triple camera, 5000mAh battery</p>
+                <div class="price">$699.99</div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
     </div>
 
 </body>
@@ -97,7 +131,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/1.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/1.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Free Delivery</h2>
@@ -110,7 +144,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/2.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/2.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Safe Payment</h2>
@@ -123,11 +157,11 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/3.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/3.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Shop with Confidence</h2>
-                                    <p>Our Buyer Protection covers your purchasefrom click to delivery.</p>
+                                    <p>Our Buyer Protection covers your purchase from click to delivery.</p>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +170,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/4.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/4.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>24/7 Help Center</h2>
@@ -155,7 +189,7 @@
                                     <!-- Begin Footer Logo Area -->
                                     <div class="col-lg-4 col-md-6">
                                         <div class="footer-logo">
-                                            <img src="images/cover.png" alt="Footer Logo" class="f-logo">
+                                            <img src="{% static 'images/cover.png' %}" alt="Footer Logo" class="f-logo">
                                         </div>
                                         <ul class="des">
                                             <li>
@@ -179,7 +213,7 @@
                     <!-- Begin Footer Payment Area -->
                     <div class="copyright text-center" class="row">
                         <a href="#">
-                            <img src="images/payment/1.png" alt="">
+                            <img src="{% static 'images/payment/1.png' %}" alt="">
                         </a>
                     </div>
                     <!-- Footer Payment Area End Here -->
@@ -188,4 +222,5 @@
         </div>
     </div>
 </footer>
+
 </html>

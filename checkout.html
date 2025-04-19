@@ -1,39 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.CSS">
-    <link rel="stylesheet" href="checkout.css">
+
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+    <link rel="stylesheet" href="{% static 'checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
     <title>checkout</title>
 </head>
+
 <body>
     <div class="container">
         <div class="navbar">
             <div class="logo">
                 <a href="Index.html">
-                    <img src="images/nav bar/cover.png" width="170px" alt="Electronix Hub" id="logo">
+                    <img src="{% static 'images/nav bar/cover.png' %}" width="170px" alt="Electronix Hub" id="logo">
                 </a>
             </div>
+            <input type="text" id="searchInput" placeholder="Search...">
+            <ul id="resultsList"></ul>
+
+            <script>
+                const input = document.getElementById("searchInput");
+                const resultsList = document.getElementById("resultsList");
+
+                input.addEventListener("keyup", async () => {
+                    const query = input.value;
+                    const response = await fetch(`/search?q=${encodeURIComponent(query)}`);
+                    const data = await response.json();
+
+                    resultsList.innerHTML = "";
+                    data.forEach(item => {
+                        const li = document.createElement("li");
+                        li.textContent = item.name;
+                        resultsList.appendChild(li);
+                    });
+                });
+            </script>
+
+
+
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="favourites.html">Favourites❤️</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/favourites/">Favourites❤️</a></li>
                     <li class="dropdown">
-                        <select class="dropbtn">
-                            <option selected disabled>Products</option>
-                            <option value="#">📱 Mobile & Tablets</option>
-                            <option value="#">💻 Laptops</option>
-                            <option value="#">📺 Televisions</option>
-                            <option value="#">🏠 Home Applicants</option>
-                            <!-- <option value="#">🎧 Accessories</option> -->
+                        <select class="dropbtn" onchange="redirectToPage(this.value);">
+                            <option selected disabled>🛒 Products</option>
+                            <option value="/mobiles/">📱 Mobiles</option>
+                            <option value="/tablets/">🖥️ Tablets</option>
+                            <option value="/Laptops/">💻 Laptops</option>
+                            <option value="/screens/">📺 Televisions</option>
+                            <option value="/devices/">🏠 Home Appliances</option>
                         </select>
-                    <li><a href="signin.html">Sign in</a></li>
-                    <li><a href="cart.html">🛒</a></li>
+                        <script>
+                            function redirectToPage(url) {
+                                if (url) {
+                                    window.location.href = url;
+                                }
+                            }
+                        </script>
+                    <li><a href="/signin/">Sign in</a></li>
+                    <li><a href="/cart/">🛒</a></li>
                 </ul>
             </nav>
         </div>
     </div>
-    
+
     <div class="checkout-container">
         <div class="card-form">
             <form>
@@ -48,19 +82,19 @@
 
                 <div class="row">
 
-                    <div>  
+                    <div>
                         <label>MM/YY</label>
                         <input type="text" placeholder="09/27" />
-                    </div>  
-                    <div>    
-                      <label>CVV</label>
-                      <input type="text" placeholder="699" />
+                    </div>
+                    <div>
+                        <label>CVV</label>
+                        <input type="text" placeholder="699" />
                     </div>
 
                 </div>
 
-                    <button class=submit-button>PAY NOW</button>
-                   
+                <button class=submit-button>PAY NOW</button>
+
             </form>
         </div>
     </div>
@@ -78,7 +112,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/1.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/1.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Free Delivery</h2>
@@ -91,7 +125,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/2.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/2.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Safe Payment</h2>
@@ -104,11 +138,11 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/3.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/3.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Shop with Confidence</h2>
-                                    <p>Our Buyer Protection covers your purchasefrom click to delivery.</p>
+                                    <p>Our Buyer Protection covers your purchase from click to delivery.</p>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +151,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="images/shipping-icon/4.png" alt="Shipping Icon">
+                                    <img src="{% static 'images/shipping-icon/4.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>24/7 Help Center</h2>
@@ -136,7 +170,7 @@
                                     <!-- Begin Footer Logo Area -->
                                     <div class="col-lg-4 col-md-6">
                                         <div class="footer-logo">
-                                            <img src="images/cover.png" alt="Footer Logo" class="f-logo">
+                                            <img src="{% static 'images/cover.png' %}" alt="Footer Logo" class="f-logo">
                                         </div>
                                         <ul class="des">
                                             <li>
@@ -160,7 +194,7 @@
                     <!-- Begin Footer Payment Area -->
                     <div class="copyright text-center" class="row">
                         <a href="#">
-                            <img src="images/payment/1.png" alt="">
+                            <img src="{% static 'images/payment/1.png' %}" alt="">
                         </a>
                     </div>
                     <!-- Footer Payment Area End Here -->
@@ -169,4 +203,5 @@
         </div>
     </div>
 </footer>
+
 </html>
